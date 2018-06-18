@@ -1,0 +1,7 @@
+<h1>Login</h1>
+<p class='error'>{{error}}</p>
+<form method="post" action="/users/login">
+    <input name="username" placeholder="enter username" value="{{userData.username}}" />
+    <input type="password" name="password" placeholder="enter password" />
+    <input id="submit" type="submit" value="LOGIN" />
+</form>

@@ -1,0 +1,36 @@
+<h1>Cars</h1>
+<div class="cars-container">
+  {{#each cars}}
+    <div class="car-container">
+        <section>
+          {{#if ../admin}}
+            <a href="/cars/edit/{{id}}">
+                <img src="{{imageUrl}}" alt='car-image' />    
+            </a>
+          {{else}}
+            <a href="/cars/rent/{{id}}">
+                <img src="{{imageUrl}}" alt='car-image' />    
+            </a>
+          {{/if}}          
+        </section>
+        <section class="info">
+            <strong>{{make}}</strong>
+            <span class="rented">rented: 
+                <strong>{{rentedTimesCount}}</strong>
+            </span>
+        </section>
+    </div>
+  {{else}}
+    <p>No cars found :( Try again later.</p>
+  {{/each}}
+</div>
+<div class="text-center">
+    <ul class="pagination">
+      {{#if hasPrevPage}}
+        <a href="/cars/all/?page={{prevPage}}">❮</a>
+      {{/if}}
+      {{#if hasNextPage}}
+        <a href="/cars/all/?page={{nextPage}}">❯</a>
+      {{/if}}
+    </ul>
+  </div>

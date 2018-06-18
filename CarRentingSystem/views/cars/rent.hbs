@@ -1,0 +1,26 @@
+<h1>Rent</h1>
+<p class='error'>{{error}}</p>
+<div class="car-container">
+  <section>
+      <a href="#">
+          <img src="{{car.imageUrl}}" alt='car-image' />    
+      </a>           
+  </section>
+  <section class="info">
+      <strong>{{car.make}}</strong>
+      <strong>{{car.model}}</strong>
+      <br />
+      <strong>Price Per Day: {{car.pricePerDay}} leva</strong>
+    <form action="/cars/rent/{{car.id}}" method="POST">
+      <span class="rented">rent for: 
+        <select name="days">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+         </select>
+      </span>
+      <input id="submit" type="submit" value="RENT">
+    </form>
+  </section>
+</div>

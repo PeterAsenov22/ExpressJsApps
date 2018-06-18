@@ -1,0 +1,41 @@
+<h2>Edit Product</h2>
+ {{#if error}}
+   <span class="error">{{error}}</span>
+ {{/if}}
+ <form method="post">
+	<div>
+	  <label for="category">Category</label>
+	  <select name="category" id="category">
+      {{#if isBeef}}
+	      <option selected value="beef">Beef</option>
+      {{else}}
+        <option value="beef">Beef</option>
+      {{/if}}
+      {{#if isChicken}}
+	      <option selected value="chicken">Chicken</option>
+      {{else}}
+        <option value="chicken">Chicken</option>
+      {{/if}}
+      {{#if isLamb}}
+	      <option selected value="lamb">Lamb</option>
+      {{else}}
+        <option value="lamb">Lamb</option>
+      {{/if}}
+	  </select>
+	</div>
+	<div>
+	  <label for="imageUrl">Image Url</label>
+	  <input id="imageUrl" name="imageUrl" type="text" value="{{imageUrl}}">
+	</div>
+	<div>
+	  <label for="size">Size</label>
+	  <input id="size" name="size" type="number" value="{{size}}">
+	</div>
+	<div>
+	  <strong>Toppings</strong><br>
+	  <textarea name="toppings">{{toppings}}</textarea>
+	</div>
+	<div>
+	  <input type="submit" value="Edit" class="button" style="border:0"/>
+	</div>
+</form>

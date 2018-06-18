@@ -1,0 +1,10 @@
+<h1>Create a car</h1>
+<p class='error'>{{error}}</p>
+<form method="post" action="/cars/add">
+    <input name="make" placeholder="enter make" value="{{car.make}}" />
+    <input name="model" placeholder="enter model" value="{{car.model}}" />
+    <input name="imageUrl" placeholder="enter image url" value="{{car.imageUrl}}" />
+    <input name="color" placeholder="enter color (optional)" value="{{car.color}}" />
+    <input name="pricePerDay" type="number" placeholder="enter price per day" value="{{car.pricePerDay}}" />
+    <input id="submit" type="submit" value="CREATE" />
+</form>

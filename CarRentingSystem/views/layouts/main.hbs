@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>RentACar</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="icon" href="/favicon.ico?" />
+</head>
+</body class="preload">
+    <header>
+        <nav>
+            <img id="logo" src="/logo.png" alt="logo"/>
+            <ul id="main-nav">
+                <li><a href="/">home</a></li>
+                <li><a href="/cars/all">all cars</a></li>
+                {{#if admin}}
+                <li><a href="/cars/add">add car</a></li>
+                {{/if}}
+                {{#if user}}
+                  {{#unless admin}}
+                    <li><a href="/users/profile/me">profile</a></li>
+                  {{/unless}}
+                {{/if}}
+            </ul>
+            <ul id="user">
+                {{#if user}}
+                  <li class="align-left">
+                    <span>Welcome, {{user.username}}!</span>
+                  </li>
+                  <li><a href="/users/logout">logout</a></li>
+                {{else}}
+                  <li><a href="/users/register">register</a></li>
+                  <li><a href="/users/login">login</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+    <section id="main-container">
+        {{#if successMessage}}
+        <div class="notification success">{{successMessage}}</div>
+        {{/if}}
+        <main>
+          {{{body}}}
+        </main>
+    </section>
+    <footer>
+        <span>Car Renting System</span>
+    </footer>
+    <script>
+        document.onload = function() {
+            document
+                .querySelector('body')
+                .classList
+                .remove('preload');
+        }
+    </script>
+</body>
+</html>

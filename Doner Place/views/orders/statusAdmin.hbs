@@ -1,0 +1,41 @@
+<h1>Manage orders</h1>
+<div class="orders">
+{{#if orders}}
+	<form method="post">
+    {{#each orders}}
+      <div class="order">
+				<span class="order-time">{{dateUTC}}</span>
+				<span class="order-name">{{product.type}}, {{product.size}} cm</span>
+				<span class="order-status">
+					<select name="{{id}}">
+            {{#if pending}}
+						  <option selected value="Pending">Pending</option>
+            {{else}}
+              <option value="Pending">Pending</option>
+            {{/if}}
+            {{#if inProgress}}
+						  <option selected value="In progress">In Progress</option>
+            {{else}}
+              <option value="In progress">In Progress</option>
+            {{/if}}
+            {{#if inTransit}}
+						  <option selected value="In transit">In Transit</option>
+            {{else}}
+              <option value="In transit">In Transit</option>
+            {{/if}}
+						{{#if delivered}}
+						  <option selected value="Delivered">Delivered</option>
+            {{else}}
+              <option value="Delivered">Delivered</option>
+            {{/if}}
+					</select>
+				</span>
+				<a href="/orders/details/{{id}}" class="button order-button">Details</a>
+	    </div>
+    {{/each}}
+    <input type="submit" value="Save Changes" class="button" style="border:0">
+	</form>
+{{else}}
+  <p>There are no orders.</p>
+{{/if}}
+</div>

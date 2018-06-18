@@ -1,0 +1,47 @@
+<h1>Welcome to Doner Place!</h1>
+<p>We offer a wide variety of tasty doner kebab, cutosmized to your liking. Choose from different sizes of chicken, beef and lamb and any topping you want. Place your order now!</p>
+<div class="products">
+  {{#if admin}}
+    <h2>Admin</h2>
+		<div class="product-card">
+			<img src="/img/new.png" />
+			<a href="/admin/product/create" class="button product-title">Create Product</a>
+		</div>
+  {{/if}}
+  <h2>Chicken Doner</h2>
+  {{#if chickenProducts}}
+    {{#each chickenProducts}}
+      {{#if ../admin}}
+        {{> donerAdmin}}
+      {{else}}
+        {{> doner}}
+      {{/if}}
+    {{/each}}
+  {{else}}
+    <p>There are no chicken doners.</p>
+  {{/if}}
+  <h2>Beef Doner</h2>
+  {{#if beefProducts}}
+    {{#each beefProducts}}
+      {{#if ../admin}}
+        {{> donerAdmin}}
+      {{else}}
+        {{> doner}}
+      {{/if}}
+    {{/each}}
+  {{else}}
+    <p>There are no beef doners.</p>
+  {{/if}}
+  <h2>Lamb Doner</h2>
+  {{#if lambProducts}}
+    {{#each lambProducts}}
+     {{#if ../admin}}
+        {{> donerAdmin}}
+      {{else}}
+        {{> doner}}
+      {{/if}}
+    {{/each}}
+  {{else}}
+    <p>There are no lamb doners.</p>
+  {{/if}}
+</div>
